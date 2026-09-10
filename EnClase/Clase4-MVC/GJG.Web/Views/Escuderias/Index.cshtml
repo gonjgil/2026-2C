@@ -1,0 +1,32 @@
+﻿@using GJG.Entidades
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Escuderias</h1>
+Listado de Escuderias del Campeonato de F1 en 2026
+<table class="table">
+    <thead>
+        <tr>
+            <td></td>
+            <td>Puntos</td>
+            <td>Motor</td>
+            <td>Fundada</td>
+            <td>País</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var escuderia in Model)
+        {
+            <tr>
+                <td>@escuderia.ImagenUrl + @escuderia.Nombre</td>
+                <td>@escuderia.Puntos</td>
+                <td>@escuderia.Motor</td>
+                <td>@escuderia.Fundada</td>
+                <td>@escuderia.País</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="GJG.Entidades/GJG.Entidades.csproj" />
+  <Project Path="GJG.Logica/GJG.Logica.csproj" />
+  <Project Path="GJG.Web/GJG.Web.csproj" />
+</Solution>

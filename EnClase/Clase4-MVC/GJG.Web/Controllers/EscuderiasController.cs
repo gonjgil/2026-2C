@@ -17,7 +17,6 @@ public class EscuderiasController : Controller
     public IActionResult Index()
     {
         var escuderias = _escuderiasServicios.Listar();
-
         return View(escuderias);
     }
 
@@ -27,12 +26,12 @@ public class EscuderiasController : Controller
         return View(new Escuderia());
     }
 
-    [HttpPost]
-    public IActionResult Agregar(Escuderia escuderia)
-    {
-        _escuderiasServicios.Agregar(escuderia);
-        return RedirectToAction("Index");
-    }
+    // [HttpPost]
+    // public IActionResult Agregar(Escuderia escuderia)
+    // {
+    //     _escuderiasServicios.Agregar(escuderia);
+    //     return RedirectToAction("Index");
+    // }
 
     [HttpGet]
     public IActionResult Actualizar(int id)

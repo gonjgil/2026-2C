@@ -2,16 +2,16 @@ using GJG.Entidades;
 
 namespace GJG.Logica;
 
-public interface IEscuderiasServicios
+public interface IEscuderiasServicio
 {
     void Agregar(Escuderia escuderia);
-    void Actualizar(Escuderia escuderia, string? piloto = null);
+    void Actualizar(Escuderia escuderia);
     void Eliminar(int id);
     List<Escuderia> Listar();
     Escuderia? ObtenerPorId(int id);
 }
 
-public class EscuderiasServicios : IEscuderiasServicios
+public class EscuderiasServicio : IEscuderiasServicio
 {
     private static List<Escuderia> lista = new List<Escuderia>()
     {
@@ -105,7 +105,7 @@ public class EscuderiasServicios : IEscuderiasServicios
         },
     };
 
-    public EscuderiasServicios() { }
+    public EscuderiasServicio() { }
 
     /// <summary>
     /// Agrega una Escuderia
@@ -120,21 +120,17 @@ public class EscuderiasServicios : IEscuderiasServicios
     }
 
     /// <summary>
-    /// Actualiza los datos de una Escuderia, y opcionalmente puede agregar un piloto.
+    /// Actualiza los datos de una Escuderia.
     /// </summary>
     /// <param name="escuderia"></param>
     /// <param name="piloto"></param>
-    public void Actualizar(Escuderia escuderia, string? piloto = null)
+    public void Actualizar(Escuderia escuderia)
     {
         var escuderiaDB = ObtenerPorId(escuderia.Id);
         if (escuderiaDB != null)
         {
             escuderiaDB.Motor = escuderia.Motor;
             escuderiaDB.Puntos = escuderia.Puntos;
-            if (piloto != null)
-            {
-                escuderiaDB.Pilotos.Add(piloto);
-            }
         }
     }
 

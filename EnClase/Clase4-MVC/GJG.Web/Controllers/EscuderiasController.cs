@@ -6,9 +6,9 @@ namespace GJG.Web.Controllers;
 
 public class EscuderiasController : Controller
 {
-    private readonly IEscuderiasServicios _escuderiasServicios;
+    private readonly IEscuderiasServicio _escuderiasServicios;
 
-    public EscuderiasController(IEscuderiasServicios escuderiasServicios)
+    public EscuderiasController(IEscuderiasServicio escuderiasServicios)
     {
         _escuderiasServicios = escuderiasServicios;
     }
@@ -45,14 +45,14 @@ public class EscuderiasController : Controller
     }
 
     [HttpPost]
-    public IActionResult Actualizar(Escuderia escuderia, string? piloto = null)
+    public IActionResult Actualizar(Escuderia escuderia)
     {
         var encontrada = _escuderiasServicios.ObtenerPorId(escuderia.Id);
         if (encontrada == null)
         {
             return NotFound();
         }
-        _escuderiasServicios.Actualizar(escuderia, piloto);
+        _escuderiasServicios.Actualizar(escuderia);
         return RedirectToAction("Index");
     }
 

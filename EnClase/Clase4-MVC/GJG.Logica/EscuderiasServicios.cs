@@ -20,7 +20,7 @@ public class EscuderiasServicios : IEscuderiasServicios
             Id = 1,
             Nombre = "Mercedes",
             Pais = "Alemania",
-            ImagenUrl = "/img/mercedes.jfif",
+            ImagenUrl = "/img/mercedes.avif",
             Fundacion = 1954,
         },
         new Escuderia()
@@ -28,7 +28,7 @@ public class EscuderiasServicios : IEscuderiasServicios
             Id = 2,
             Nombre = "Ferrari",
             Pais = "Italia",
-            ImagenUrl = "/img/ferrari.jfif",
+            ImagenUrl = "/img/ferrari.avif",
             Fundacion = 1929,
         },
         new Escuderia()
@@ -36,7 +36,7 @@ public class EscuderiasServicios : IEscuderiasServicios
             Id = 3,
             Nombre = "Red Bull",
             Pais = "Austria",
-            ImagenUrl = "/img/redbull.jfif",
+            ImagenUrl = "/img/redbull.avif",
             Fundacion = 2005,
         },
         new Escuderia()
@@ -44,7 +44,7 @@ public class EscuderiasServicios : IEscuderiasServicios
             Id = 4,
             Nombre = "McLaren",
             Pais = "Reino Unido",
-            ImagenUrl = "/img/mclaren.jfif",
+            ImagenUrl = "/img/mclaren.avif",
             Fundacion = 1963,
         },
         new Escuderia()
@@ -52,7 +52,7 @@ public class EscuderiasServicios : IEscuderiasServicios
             Id = 5,
             Nombre = "Alpine",
             Pais = "Francia",
-            ImagenUrl = "/img/alpine.jfif",
+            ImagenUrl = "/img/alpine.avif",
             Fundacion = 2021,
         },
         new Escuderia()
@@ -60,7 +60,7 @@ public class EscuderiasServicios : IEscuderiasServicios
             Id = 6,
             Nombre = "Racing Bulls",
             Pais = "Austria",
-            ImagenUrl = "/img/racingbulls.jfif",
+            ImagenUrl = "/img/racingbulls.avif",
             Fundacion = 2005,
         },
         new Escuderia()
@@ -68,7 +68,7 @@ public class EscuderiasServicios : IEscuderiasServicios
             Id = 7,
             Nombre = "Audi",
             Pais = "Alemania",
-            ImagenUrl = "/img/audi.jfif",
+            ImagenUrl = "/img/audi.avif",
             Fundacion = 1909,
         },
         new Escuderia()
@@ -76,7 +76,7 @@ public class EscuderiasServicios : IEscuderiasServicios
             Id = 8,
             Nombre = "Haas",
             Pais = "Estados Unidos",
-            ImagenUrl = "/img/haas.jfif",
+            ImagenUrl = "/img/haas.avif",
             Fundacion = 2014,
         },
         new Escuderia()
@@ -84,7 +84,7 @@ public class EscuderiasServicios : IEscuderiasServicios
             Id = 9,
             Nombre = "Williams",
             Pais = "Reino Unido",
-            ImagenUrl = "/img/williams.jfif",
+            ImagenUrl = "/img/williams.avif",
             Fundacion = 1977,
         },
         new Escuderia()
@@ -92,7 +92,7 @@ public class EscuderiasServicios : IEscuderiasServicios
             Id = 10,
             Nombre = "Aston Martin",
             Pais = "Reino Unido",
-            ImagenUrl = "/img/astonmartin.jfif",
+            ImagenUrl = "/img/astonmartin.avif",
             Fundacion = 1913,
         },
         new Escuderia()
@@ -100,7 +100,7 @@ public class EscuderiasServicios : IEscuderiasServicios
             Id = 11,
             Nombre = "Cadillac",
             Pais = "Estados Unidos",
-            ImagenUrl = "/img/cadillac.jfif",
+            ImagenUrl = "/img/cadillac.avif",
             Fundacion = 1902,
         },
     };

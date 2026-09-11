@@ -1,6 +1,6 @@
 ﻿@model List<GJG.Entidades.Escuderia>
+@using Paises
 @{
-
 }
 
 <h1>Escuderias</h1>
@@ -19,17 +19,27 @@ Listado de Escuderias del Campeonato de F1 en 2026
     <tbody>
         @foreach (var escuderia in Model)
         {
+            string codigoIso = Banderas.ObtenerCodigoIso(escuderia.Pais);
             <tr>
-                <td>@escuderia.ImagenUrl @escuderia.Nombre</td>
+                <td><img src="@escuderia.ImagenUrl" width="40" height="40" alt="@escuderia.Nombre"/>
+                    @escuderia.Nombre</td>
                 <td>@escuderia.Puntos</td>
                 <td>@escuderia.Motor</td>
                 <td>@escuderia.Fundacion</td>
-                <td>@escuderia.Pais</td>
                 <td>
-                    <a asp-action="Actualizar" asp-route-id="@escuderia.Id"
-                       class="btn btn-primary">Actualizar</a>
-                    <a asp-action="Eliminar" asp-route-id="@escuderia.Id"
-                       class="btn btn-danger">Eliminar</a>
+                    <div style='display: flex; align-items: center; gap: 8px;'>
+                        @if (!string.IsNullOrEmpty(codigoIso))
+                        {
+                            <img src='https://flagcdn.com/w20/@(codigoIso).png'
+                                 srcset='https://flagcdn.com/w40/@(codigoIso).png 2x' width='20'
+                                 alt='Bandera de @escuderia.Pais' />
+                        }
+                        <span> @escuderia.Pais</span>
+                    </div>
+                </td>
+                <td>
+                    <a asp-action="Actualizar" asp-route-id="@escuderia.Id" class="btn btn-primary">Actualizar</a>
+                    <a asp-action="Eliminar" asp-route-id="@escuderia.Id" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
         }

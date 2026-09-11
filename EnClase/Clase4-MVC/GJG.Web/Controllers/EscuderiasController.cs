@@ -1,3 +1,4 @@
+// MVC Controller for Escuderias
 using GJG.Entidades;
 using GJG.Logica;
 using Microsoft.AspNetCore.Mvc;

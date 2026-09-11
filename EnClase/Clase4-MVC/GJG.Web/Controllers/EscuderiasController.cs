@@ -56,7 +56,7 @@ public class EscuderiasController : Controller
         return RedirectToAction("Index");
     }
 
-    [HttpGet]
+    [HttpPost]
     public IActionResult Eliminar(int id)
     {
         var encontrada = _escuderiasServicios.ObtenerPorId(id);

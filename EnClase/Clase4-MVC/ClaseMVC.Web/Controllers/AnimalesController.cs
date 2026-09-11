@@ -9,6 +9,7 @@ namespace ClaseMVC.Web.Controllers;
 public class AnimalesController : Controller
 {
     private readonly IAnimalesServicios _animalesServicios;
+
     public AnimalesController(IAnimalesServicios animalesServicios)
     {
         _animalesServicios = animalesServicios;
@@ -22,7 +23,6 @@ public class AnimalesController : Controller
     }
 
     //Agregar
-
 
     [HttpGet]
     public IActionResult Agregar()
@@ -57,7 +57,7 @@ public class AnimalesController : Controller
         if (animalDB == null)
             return NotFound();
 
-        _animalesServicios.Actualizar(animal);
+        _animalesServicios.Editar(animal);
 
         return RedirectToAction("Index");
     }

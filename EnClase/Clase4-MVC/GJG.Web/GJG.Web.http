@@ -1,4 +1,4 @@
-@GJGWeb_HostAddress = https://localhost:7200
+@GJGWeb_HostAddress = https://localhost:7039
 
 GET {{GJGWeb_HostAddress}}/api/escuderia
 

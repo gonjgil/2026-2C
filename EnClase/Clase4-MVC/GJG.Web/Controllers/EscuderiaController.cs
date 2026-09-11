@@ -1,14 +1,10 @@
+using GJG.Entidades;
+using GJG.Logica;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GJG.Web
 {
-    public class EscuderiaController : Controller
-    {
-        // GET: EscuderiaController
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-    }
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EscuderiaController : ControllerBase { }
 }

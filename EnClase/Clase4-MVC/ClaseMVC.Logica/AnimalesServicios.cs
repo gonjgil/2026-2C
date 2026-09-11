@@ -4,13 +4,14 @@ namespace ClaseMVC.Logica;
 
 public interface IAnimalesServicios
 {
-    void Actualizar(Animal animal);
+    void Editar(Animal animal);
     void Agregar(Animal animal);
     List<Animal> Listar();
     Animal? ObtenerPorId(int id);
 
     void Eliminar(int id);
 }
+
 public class AnimalesServicios : IAnimalesServicios
 {
     private static List<Animal> lista;
@@ -19,15 +20,55 @@ public class AnimalesServicios : IAnimalesServicios
     {
         lista = new List<Animal>()
         {
-            new Animal() { Id=1, Raza = "Perro", ImagenUrl="/img/perro.jfif", Peso = 20.5, EdadEstimada = 5, EnExtincion = false },
-            new Animal() { Id=2, Raza = "Gato", ImagenUrl="/img/gato.jfif", Peso = 5.0, EdadEstimada = 3, EnExtincion = false },
-            new Animal() { Id=3, Raza = "Tigre", ImagenUrl="/img/tigre.jfif", Peso = 200.0, EdadEstimada = 10, EnExtincion = true },
-            new Animal() { Id=4, Raza = "Elefante", ImagenUrl="/img/elefante.jfif", Peso = 5000.0, EdadEstimada = 50, EnExtincion = true },
-            new Animal() { Id=5, Raza = "Loro", ImagenUrl="/img/loro.jfif", Peso = 1.0, EdadEstimada = 2, EnExtincion = false }
+            new Animal()
+            {
+                Id = 1,
+                Raza = "Perro",
+                ImagenUrl = "/img/perro.jfif",
+                Peso = 20.5,
+                EdadEstimada = 5,
+                EnExtincion = false,
+            },
+            new Animal()
+            {
+                Id = 2,
+                Raza = "Gato",
+                ImagenUrl = "/img/gato.jfif",
+                Peso = 5.0,
+                EdadEstimada = 3,
+                EnExtincion = false,
+            },
+            new Animal()
+            {
+                Id = 3,
+                Raza = "Tigre",
+                ImagenUrl = "/img/tigre.jfif",
+                Peso = 200.0,
+                EdadEstimada = 10,
+                EnExtincion = true,
+            },
+            new Animal()
+            {
+                Id = 4,
+                Raza = "Elefante",
+                ImagenUrl = "/img/elefante.jfif",
+                Peso = 5000.0,
+                EdadEstimada = 50,
+                EnExtincion = true,
+            },
+            new Animal()
+            {
+                Id = 5,
+                Raza = "Loro",
+                ImagenUrl = "/img/loro.jfif",
+                Peso = 1.0,
+                EdadEstimada = 2,
+                EnExtincion = false,
+            },
         };
     }
 
-    public void Actualizar(Animal animal)
+    public void Editar(Animal animal)
     {
         var animalDB = lista.Find(a => a.Id == animal.Id);
         if (animalDB != null)

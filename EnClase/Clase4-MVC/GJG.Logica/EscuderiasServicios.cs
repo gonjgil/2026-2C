@@ -107,6 +107,10 @@ public class EscuderiasServicios : IEscuderiasServicios
 
     public EscuderiasServicios() { }
 
+    /// <summary>
+    /// Agrega una Escuderia
+    /// </summary>
+    /// <param name="escuderia"></param>
     public void Agregar(Escuderia escuderia)
     {
         int nuevoId = lista.Count > 0 ? lista.Max(e => e.Id) + 1 : 1;
@@ -115,6 +119,11 @@ public class EscuderiasServicios : IEscuderiasServicios
         lista.Add(escuderia);
     }
 
+    /// <summary>
+    /// Actualiza los datos de una Escuderia, y opcionalmente puede agregar un piloto.
+    /// </summary>
+    /// <param name="escuderia"></param>
+    /// <param name="piloto"></param>
     public void Actualizar(Escuderia escuderia, string? piloto = null)
     {
         var escuderiaDB = ObtenerPorId(escuderia.Id);
@@ -129,6 +138,10 @@ public class EscuderiasServicios : IEscuderiasServicios
         }
     }
 
+    /// <summary>
+    /// Elimina una Escuderia
+    /// </summary>
+    /// <param name="id"></param>
     public void Eliminar(int id)
     {
         var escuderiaDB = ObtenerPorId(id);
@@ -138,11 +151,20 @@ public class EscuderiasServicios : IEscuderiasServicios
         }
     }
 
+    /// <summary>
+    /// Lista todas lasEscuderias
+    /// </summary>
+    /// <returns>List <see cref="{T}"/></returns>
     public List<Escuderia> Listar()
     {
         return lista;
     }
 
+    /// <summary>
+    /// Busca una Escuderia por su ID
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns><see cref="Escuderia"/> | <see langword="null"/></returns>
     public Escuderia? ObtenerPorId(int id)
     {
         return lista.Find(e => e.Id == id);

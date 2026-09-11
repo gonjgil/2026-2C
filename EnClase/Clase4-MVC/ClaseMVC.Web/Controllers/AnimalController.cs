@@ -2,7 +2,6 @@
 using ClaseMVC.Logica;
 using Microsoft.AspNetCore.Mvc;
 
-
 namespace ClaseMVC.Web.Controllers;
 
 [Route("api/[controller]")]
@@ -47,7 +46,7 @@ public class AnimalController : ControllerBase
     [HttpPut("{id}")]
     public void Put([FromBody] Animal animal)
     {
-        _animalesServicios.Actualizar(animal);
+        _animalesServicios.Editar(animal);
     }
 
     // DELETE api/<AnimalController>/5

@@ -5,11 +5,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddSingleton<IEscuderiasServicios, EscuderiasServicios>();
+builder.Services.AddSingleton<IEscuderiasServicio, EscuderiasServicio>();
 
 var app = builder.Build();
-//add singleton
 
+//add singleton
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -25,10 +25,7 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 
-app.MapControllerRoute(
-    name: "default", 
-    pattern: "{controller=Escuderias}/{action=Index}/{id?}")
+app.MapControllerRoute(name: "default", pattern: "{controller=Escuderias}/{action=Index}/{id?}")
     .WithStaticAssets();
-
 
 app.Run();

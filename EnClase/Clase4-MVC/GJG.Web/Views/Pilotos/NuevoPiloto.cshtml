@@ -1,0 +1,21 @@
+@Model GJG.Entidades.Piloto
+@{
+}
+h1>Agregar Piloto</h1>
+<form action="@Url.Action("NuevoPiloto", "Escuderias")" method="post">
+    <input type="hidden" name="EscuderiaId" value="@ViewBag.EscuderiaId" />
+    <div class="form-group">
+        <label for="Nombre">Nombre</label>
+        <input type="text" class="form-control" id="Nombre" name="Nombre"/>
+    </div>
+    <div class="form-group">
+        <label for="Numero">Número</label>
+        <input type="number" class="form-control" id="Numero" name="Numero"/>
+    </div>
+    <div class="form-group">
+        <label for="Pais">País</label>
+        <input type="text" class="form-control" id="Pais" name="Pais"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Agregar</button>
+    <a href="/" class="btn btn-secondary">Cancelar</a>
+</form>

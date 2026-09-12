@@ -13,6 +13,7 @@ Listado de Escuderias del Campeonato de F1 en 2026
             <td>Motor</td>
             <td>Fundada</td>
             <td>País</td>
+            <td colspan="2">Pilotos</td>
             <td>Acciones</td>
         </tr>
     </thead>
@@ -20,20 +21,42 @@ Listado de Escuderias del Campeonato de F1 en 2026
         @foreach (var escuderia in Model)
         {
             <tr>
-                <td><img src="@escuderia.ImagenUrl" alt="@escuderia.Nombre" height="38" /> @escuderia.Nombre</td>
-                <td>@escuderia.Puntos</td>
-                <td>@escuderia.Motor</td>
-                <td>@escuderia.Fundacion</td>
-                <td>@escuderia.Pais</td>
-                <td class="d-flex gap-2">
-                    <a asp-controller="Escuderias" asp-action="Actualizar" asp-route-id="@escuderia.Id"
-                       class="btn btn-primary">Actualizar</a>
-                    <form asp-action="Eliminar" method="post">
-                        <input type="hidden" name="id" value="@escuderia.Id" />
-                        <button class="btn btn-danger" type="submit">Eliminar</button>
-                    </form>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                <td><img src="@escuderia.ImagenUrl" alt="@escuderia.Nombre" height="38" />
+                    @escuderia.Nombre</td>
+                    <td>@escuderia.Puntos</td>
+                    <td>@escuderia.Motor</td>
+                    <td>@escuderia.Fundacion</td>
+                    <td>@escuderia.Pais</td>
+                    <td class="pr-0">
+                        <a asp-controller="Pilotos" asp-action="NuevoPiloto" asp-route-escuderiaId="@escuderia.Id"
+                           class="btn btn-success">+</a>
+                    </td>
+                    <td>
+                        <div style='display: flex; align-items: center; gap: 0px;'>
+                            @if (escuderia.Pilotos != null && escuderia.Pilotos.Any())
+                            {
+                                <ul style='margin: 0; padding-left: 0px;'>
+                                    @foreach (var piloto in escuderia.Pilotos)
+                                    {
+                                        <li>@piloto.Numero - @piloto.Nombre</li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <span>No hay pilotos</span>
+                            }
+                        </div>
+                    </td>
+                    <td class="d-flex gap-2">
+                        <a asp-controller="Escuderias" asp-action="Actualizar" asp-route-id="@escuderia.Id"
+                           class="btn btn-primary">Actualizar</a>
+                        <form asp-action="Eliminar" method="post">
+                            <input type="hidden" name="id" value="@escuderia.Id" />
+                            <button class="btn btn-danger" type="submit">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

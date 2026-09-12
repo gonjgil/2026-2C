@@ -8,6 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IEscuderiasServicio, EscuderiasServicio>();
+builder.Services.AddSingleton<IPilotosServicio, PilotosServicio>();
 
 var app = builder.Build();
 

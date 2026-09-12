@@ -15,21 +15,25 @@ public class PilotosController : Controller
 
     public IActionResult Index()
     {
-        var escuderias = _pilotosServicio.Listar();
-        return View(escuderias);
+        var pilotos = _pilotosServicio.Listar();
+        return View(pilotos);
     }
 
     [HttpGet]
-    public IActionResult NuevoPiloto()
+    public IActionResult NuevoPiloto(int escuderiaId)
     {
-        return View();
-    }
+        var piloto = new Piloto
+        {
+            EscuderiaId = escuderiaId
+        };
+        return View(piloto);
+    }   
 
     [HttpPost]
-    public IActionResult NuevoPiloto([FromRoute] int id, Piloto piloto)
+    public IActionResult NuevoPiloto(int escuderiaId, Piloto piloto)
     {
-        _pilotosServicio.Agregar(id, piloto);
-        return RedirectToAction("Index");
+        _pilotosServicio.Agregar(escuderiaId, piloto);
+        return RedirectToAction("Index", "Escuderias");
     }
 
     [HttpGet]

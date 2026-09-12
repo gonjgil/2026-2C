@@ -48,13 +48,17 @@ Listado de Escuderias del Campeonato de F1 en 2026
                             }
                         </div>
                     </td>
-                    <td class="d-flex gap-2">
-                        <a asp-controller="Escuderias" asp-action="Actualizar" asp-route-id="@escuderia.Id"
-                           class="btn btn-primary">Actualizar</a>
-                        <form asp-action="Eliminar" method="post">
-                            <input type="hidden" name="id" value="@escuderia.Id" />
-                            <button class="btn btn-danger" type="submit">Eliminar</button>
-                        </form>
+                    <td style="white-space: nowrap">
+                        <div class="d-inline-block me-1">
+                            <a asp-controller="Escuderias" asp-action="Actualizar" asp-route-id="@escuderia.Id"
+                               class="btn btn-primary">Actualizar</a>
+                        </div>
+                        <div class="d-inline-block me-1">
+                            <form asp-action="Eliminar" method="post">
+                                <input type="hidden" name="id" value="@escuderia.Id" />
+                                <button class="btn btn-danger" type="submit">Eliminar</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
             }

@@ -1,3 +1,4 @@
+using GJG.Entidades;
 namespace GJG.Entidades;
 
 public class Escuderia
@@ -8,7 +9,7 @@ public class Escuderia
     public string ImagenUrl { get; set; }
     public int Fundacion { get; set; }
     public string Motor { get; set; }
-    public List<string> Pilotos { get; } = new List<string>();
+    public List<Piloto> Pilotos { get; set; } = new List<Piloto>();
     public int Puntos {get; set;}
 
 }

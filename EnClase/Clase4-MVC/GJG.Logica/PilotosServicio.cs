@@ -1,10 +1,10 @@
 using GJG.Entidades;
 
-namespace GJG.Logic;
+namespace GJG.Logica;
 
 public interface IPilotosServicio
 {
-    void Agregar(Escuderia escuderia, Piloto piloto);
+    void Agregar(int escuderiaId, Piloto piloto);
     void Actualizar(Piloto piloto, int? puntos = 0);
     void Eliminar(Piloto piloto);
     List<Piloto> Listar();
@@ -179,9 +179,9 @@ public class PilotosServicio : IPilotosServicio
     /// </summary>
     /// <param name="piloto"></param>
     /// <param name="escuderio"></param>
-    public void Agregar(Escuderia escuderia, Piloto piloto)
+    public void Agregar(int escuderiaId, Piloto piloto)
     {
-        piloto.EscuderiaId = escuderia.Id;
+        piloto.EscuderiaId = escuderiaId;
         piloto.Id = lista.Max(p => p.Id) + 1;
         lista.Add(piloto);
     }

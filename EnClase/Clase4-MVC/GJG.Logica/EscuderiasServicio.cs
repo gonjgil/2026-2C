@@ -4,7 +4,7 @@ namespace GJG.Logica;
 
 public interface IEscuderiasServicio
 {
-    void Agregar(Escuderia escuderia);
+    // void Agregar(Escuderia escuderia);
     void Actualizar(Escuderia escuderia);
     void Eliminar(int id);
     List<Escuderia> Listar();
@@ -104,20 +104,24 @@ public class EscuderiasServicio : IEscuderiasServicio
             Fundacion = 1902,
         },
     };
+    private readonly IPilotosServicio _pilotosServicio;
 
-    public EscuderiasServicio() { }
+    public EscuderiasServicio(IPilotosServicio pilotosServicio)
+    {
+        _pilotosServicio = pilotosServicio;
+    }
 
     /// <summary>
     /// Agrega una Escuderia
     /// </summary>
     /// <param name="escuderia"></param>
-    public void Agregar(Escuderia escuderia)
-    {
-        int nuevoId = lista.Count > 0 ? lista.Max(e => e.Id) + 1 : 1;
-        escuderia.Id = nuevoId;
+    // public void Agregar(Escuderia escuderia)
+    // {
+    //     int nuevoId = lista.Count > 0 ? lista.Max(e => e.Id) + 1 : 1;
+    //     escuderia.Id = nuevoId;
 
-        lista.Add(escuderia);
-    }
+    //     lista.Add(escuderia);
+    // }
 
     /// <summary>
     /// Actualiza los datos de una Escuderia.
@@ -129,6 +133,7 @@ public class EscuderiasServicio : IEscuderiasServicio
         var escuderiaDB = ObtenerPorId(escuderia.Id);
         if (escuderiaDB != null)
         {
+            escuderiaDB.Nombre = escuderia.Nombre;
             escuderiaDB.Motor = escuderia.Motor;
             escuderiaDB.Puntos = escuderia.Puntos;
         }
@@ -153,6 +158,10 @@ public class EscuderiasServicio : IEscuderiasServicio
     /// <returns>List <see cref="{T}"/></returns>
     public List<Escuderia> Listar()
     {
+        foreach (var escuderia in lista)
+        {
+            escuderia.Pilotos = _pilotosServicio.ListarPorEscuderia(escuderia);
+        }
         return lista;
     }
 
@@ -163,6 +172,11 @@ public class EscuderiasServicio : IEscuderiasServicio
     /// <returns><see cref="Escuderia"/> | <see langword="null"/></returns>
     public Escuderia? ObtenerPorId(int id)
     {
-        return lista.Find(e => e.Id == id);
+        var escuderia = lista.Find(e => e.Id == id);
+        if (escuderia != null)
+        {
+            escuderia.Pilotos = _pilotosServicio.ListarPorEscuderia(escuderia);
+        }
+        return escuderia;
     }
 }
